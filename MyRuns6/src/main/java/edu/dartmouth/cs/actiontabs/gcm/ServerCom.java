@@ -1,4 +1,4 @@
-package edu.dartmouth.cs.actiontabs;
+package edu.dartmouth.cs.actiontabs.gcm;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,6 +12,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import edu.dartmouth.cs.actiontabs.DataBaseHelper;
+import edu.dartmouth.cs.actiontabs.databaseItem;
 
 /**
  * Created by xuehanyu on 5/16/16.

@@ -1,4 +1,4 @@
-package edu.dartmouth.cs.actiontabs;
+package edu.dartmouth.cs.actiontabs.gcm;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import edu.dartmouth.cs.actiontabs.DataBaseHelper;
+import edu.dartmouth.cs.actiontabs.gcm.GcmBroadcastReceiver;
 
 /**
  * Created by xuehanyu on 5/16/16.

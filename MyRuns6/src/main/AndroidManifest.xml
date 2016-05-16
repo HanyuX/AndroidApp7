@@ -84,14 +84,14 @@
         </activity>
 
         <receiver
-            android:name=".GcmBroadcastReceiver"
+            android:name=".gcm.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="edu.dartmouth.cs.actiontabs" />
             </intent-filter>
         </receiver>
-        <service android:name=".GcmIntentService" />
+        <service android:name=".gcm.GcmIntentService" />
 
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
