@@ -35,6 +35,7 @@ public class GcmIntentService extends IntentService {
                 Logger.getLogger("GCM_RECEIVED").log(Level.INFO, extras.toString());
 
                 showToast(extras.getString("message"));
+                new DataBaseHelper(getApplicationContext()).deleteItem(extras.getString("message"));
             }
         }
         GcmBroadcastReceiver.completeWakefulIntent(intent);
