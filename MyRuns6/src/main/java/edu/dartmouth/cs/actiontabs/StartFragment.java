@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import edu.dartmouth.cs.actiontabs.gcm.ServerCom;
+
 /**
  * Created by xuehanyu on 4/5/16.
  */
@@ -71,6 +73,9 @@ public class StartFragment extends Fragment {
 
     /** called when the Sync button is clicked */
     public void onClickSync(View v) {
+        try {
+            ServerCom.post("https://seventh-tempest-131323.appspot.com"+"/post.do", getActivity());
+        }catch(Exception e){}
         Toast.makeText(getActivity(), "Sync", Toast.LENGTH_SHORT).show();
     }
 }
