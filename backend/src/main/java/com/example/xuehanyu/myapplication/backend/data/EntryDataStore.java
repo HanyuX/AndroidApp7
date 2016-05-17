@@ -83,6 +83,16 @@ public class EntryDataStore {
         return ret;
     }
 
+    public static void deleteAll() {
+        Query query = new Query(DataItem.ENTRY_ENTITY_NAME);
+        query.setFilter(null);
+
+        PreparedQuery pq = mDatastore.prepare(query);
+        for (Entity entity : pq.asIterable()) {
+            mDatastore.delete(entity.getKey());
+        }
+    }
+
     public static ArrayList<DataItem> query() {
         ArrayList<DataItem> resultList = new ArrayList<DataItem>();
         Query query = new Query(DataItem.ENTRY_ENTITY_NAME);

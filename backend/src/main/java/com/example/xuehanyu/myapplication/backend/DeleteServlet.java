@@ -23,7 +23,7 @@ public class DeleteServlet extends HttpServlet {
             throws IOException, ServletException {
         String id = req.getParameter("ID");
         EntryDataStore.delete(id);
-        resp.sendRedirect("/query.do");
+        getServletContext().getRequestDispatcher("/send.do").forward(req, resp);
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp)

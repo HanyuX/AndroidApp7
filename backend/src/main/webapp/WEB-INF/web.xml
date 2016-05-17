@@ -19,6 +19,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>post</servlet-name>
+        <servlet-class>com.example.xuehanyu.myapplication.backend.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>post</servlet-name>
+        <url-pattern>/post.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>send</servlet-name>
+        <servlet-class>com.example.xuehanyu.myapplication.backend.SendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>send</servlet-name>
+        <url-pattern>/send.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>add</servlet-name>
         <servlet-class>com.example.xuehanyu.myapplication.backend.AddServlet</servlet-class>
     </servlet>
