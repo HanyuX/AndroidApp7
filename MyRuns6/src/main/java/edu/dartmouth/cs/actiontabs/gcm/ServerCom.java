@@ -47,9 +47,10 @@ public class ServerCom {
                         .append(item.getCalories()).append(",")
                         .append(item.getClimb()).append(",")
                         .append(item.getHeartRate()).append(",")
-                        .append(item.getComment()).append(",");
+                        .append(item.getComment());
         }
         String body = bodyBuilder.toString();
+        Log.d("xue",body);
         byte[] bytes = body.getBytes();
         HttpURLConnection conn = null;
         try {
