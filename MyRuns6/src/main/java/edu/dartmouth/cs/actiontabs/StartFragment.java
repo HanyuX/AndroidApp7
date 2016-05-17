@@ -2,6 +2,7 @@ package edu.dartmouth.cs.actiontabs;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 import edu.dartmouth.cs.actiontabs.gcm.ServerCom;
 
@@ -73,10 +76,27 @@ public class StartFragment extends Fragment {
 
     /** called when the Sync button is clicked */
     public void onClickSync(View v) {
-        try {
- //           ServerCom.post("https://seventh-tempest-131323.appspot.com"+"/post.do", getActivity());
-            ServerCom.post("https://10.0.2.2:8080"+"/post.do", getActivity());
-        }catch(Exception e){}
-        Toast.makeText(getActivity(), "Sync", Toast.LENGTH_SHORT).show();
+        new asyncTask().execute();
+    }
+
+    class asyncTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                ServerCom.post("https://seventh-tempest-131323.appspot.com" + "/post.do", getActivity());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            Toast.makeText(getActivity(), "Sync", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -34,16 +34,5 @@
  	}
  %>
  </table>
-
- 	<form name="input" action="/add.do" method="post">
- 		ID: <input type="text" name="id"> InputType: <input
- 			type="text" name="inputtype"> ActivityType: <input type="text"
- 			name="activitytype">
- 		DateTime: <input type="text" name="datetime"> Duration: <input type="text" name="duration">
- 		Distance: <input type="text" name="distance"> AvgSpeed: <input type="text" name="avgspeed">
- 		Calories: <input type="text" name="calories"> Climb: <input type="text" name="climb">
- 		HeartRate: <input type="text" name="heartrate"> Comment: <input type="text" name="comment">
- 		<input type="submit" value="Add">
- 	</form>
 </body>
 </html>

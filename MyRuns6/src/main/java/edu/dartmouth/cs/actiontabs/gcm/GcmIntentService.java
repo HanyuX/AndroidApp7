@@ -39,6 +39,7 @@ public class GcmIntentService extends IntentService {
 
                 showToast(extras.getString("ID"));
                 new DataBaseHelper(getApplicationContext()).deleteItem(extras.getString("ID"));
+                
             }
         }
         GcmBroadcastReceiver.completeWakefulIntent(intent);
