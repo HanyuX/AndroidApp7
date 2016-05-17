@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class PostServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EntryDataStore.deleteAll();
         String res = req.getParameter("data");
 
@@ -25,18 +25,18 @@ public class PostServlet extends HttpServlet {
             return;
         }
 
-        String []entry = res.split("&");
+        String []entry = res.split("#");
         for (int i = 0; i < entry.length; i++) {
             String []entryItem = entry[i].split(",");
             DataItem item = new DataItem(entryItem[0], entryItem[1], entryItem[2], entryItem[3], entryItem[4],
-                    entryItem[5], entryItem[6], entryItem[7], entryItem[8], entryItem[9], entryItem[10]);
+                    entryItem[5], entryItem[6], entryItem[7], entryItem[8], entryItem[9], entryItem[12]);
             EntryDataStore.add(item);
         }
         resp.sendRedirect("/query.do");
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

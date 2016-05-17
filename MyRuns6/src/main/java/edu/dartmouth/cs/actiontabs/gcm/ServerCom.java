@@ -35,7 +35,7 @@ public class ServerCom {
         bodyBuilder.append("data=");
         for(int i = 0 ; i < data.size() ; ++i){
             if(i != 0)
-                bodyBuilder.append("&");
+                bodyBuilder.append("#");
             databaseItem item = data.get(i);
             bodyBuilder.append(item.getID()).append(",")
                         .append(item.getInputType()).append(",")
@@ -47,20 +47,23 @@ public class ServerCom {
                         .append(item.getCalories()).append(",")
                         .append(item.getClimb()).append(",")
                         .append(item.getHeartRate()).append(",")
-                        .append(item.getComment()).append(",");
+                        .append(item.getComment());
         }
         String body = bodyBuilder.toString();
+        System.out.println(body);
         byte[] bytes = body.getBytes();
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
+            conn.setDoInput(true);
             conn.setUseCaches(false);
             conn.setFixedLengthStreamingMode(bytes.length);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type",
                     "application/x-www-form-urlencoded;charset=UTF-8");
             // post the request
+            System.out.println(conn.getURL());
             OutputStream out = conn.getOutputStream();
             out.write(bytes);
             out.close();
@@ -83,7 +86,12 @@ public class ServerCom {
             rd.close();
             return response.toString();
 
-        } finally {
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+        finally {
             if (conn != null) {
                 conn.disconnect();
             }
