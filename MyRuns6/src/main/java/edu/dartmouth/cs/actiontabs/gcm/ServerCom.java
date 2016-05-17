@@ -32,6 +32,7 @@ public class ServerCom {
         ArrayList<databaseItem> data = (ArrayList<databaseItem>)new DataBaseHelper(context).allItems();
 
         // constructs the POST body using the parameters
+        bodyBuilder.append("data=");
         for(int i = 0 ; i < data.size() ; ++i){
             if(i != 0)
                 bodyBuilder.append("&");
