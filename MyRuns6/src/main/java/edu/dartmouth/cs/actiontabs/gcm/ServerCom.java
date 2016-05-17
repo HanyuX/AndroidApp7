@@ -50,11 +50,6 @@ public class ServerCom {
                         .append(item.getComment());
         }
         String body = bodyBuilder.toString();
-<<<<<<< HEAD
-        Log.d("xue",body);
-=======
-        System.out.println(body);
->>>>>>> b84b705b1ca73bc7261b0434c07063aba59c887f
         byte[] bytes = body.getBytes();
         HttpURLConnection conn = null;
         try {

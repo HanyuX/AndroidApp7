@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.dartmouth.cs.actiontabs.DataBaseHelper;
-import edu.dartmouth.cs.actiontabs.gcm.GcmBroadcastReceiver;
 
 /**
  * Created by xuehanyu on 5/16/16.
@@ -39,7 +38,6 @@ public class GcmIntentService extends IntentService {
 
                 showToast(extras.getString("ID"));
                 new DataBaseHelper(getApplicationContext()).deleteItem(extras.getString("ID"));
-                
             }
         }
         GcmBroadcastReceiver.completeWakefulIntent(intent);
