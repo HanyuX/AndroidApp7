@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by dnalwqer on 5/16/16.
+ * Add item into dataset
  */
 public class AddServlet extends HttpServlet {
 
@@ -32,6 +33,7 @@ public class AddServlet extends HttpServlet {
         String heartrate = req.getParameter("heartrate");
         String comment = req.getParameter("comment");
 
+        //genarate dataItem
         DataItem item = new DataItem(id, inputtype, activitytype, datetime, duration, distance, avgspeed, calories, climb, heartrate, comment);
         EntryDataStore.add(item);
 

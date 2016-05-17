@@ -14,6 +14,7 @@ import sun.rmi.runtime.Log;
 
 /**
  * Created by dnalwqer on 5/16/16.
+ * Receive information from mobile to update service database
  */
 public class PostServlet extends HttpServlet {
 

@@ -40,7 +40,7 @@ public class ServerCom {
             bodyBuilder.append(item.getID()).append(",")
                         .append(item.getInputType()).append(",")
                         .append(item.getActivityType()).append(",")
-                        .append(item.getDate()).append(",")
+                        .append(item.getDate()).append(" ").append(item.getTime()).append(",")
                         .append(item.getDuration()).append(",")
                         .append(item.getDistance()).append(",")
                         .append(item.getAvgSpeed()).append(",")

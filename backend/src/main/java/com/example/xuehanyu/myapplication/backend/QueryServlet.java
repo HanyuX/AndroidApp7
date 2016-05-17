@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by dnalwqer on 5/16/16.
+ * Get all items from database
  */
 public class QueryServlet extends HttpServlet {
 

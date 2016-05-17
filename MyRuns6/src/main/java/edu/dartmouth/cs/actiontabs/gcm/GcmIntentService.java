@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.dartmouth.cs.actiontabs.DataBaseHelper;
+import edu.dartmouth.cs.actiontabs.MainActivity;
 
 /**
  * Created by xuehanyu on 5/16/16.
@@ -36,8 +37,10 @@ public class GcmIntentService extends IntentService {
             if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
                 Logger.getLogger("GCM_RECEIVED").log(Level.INFO, extras.toString());
 
+                //Get ID to delete in dataset
                 showToast(extras.getString("ID"));
                 new DataBaseHelper(getApplicationContext()).deleteItem(extras.getString("ID"));
+
             }
         }
         GcmBroadcastReceiver.completeWakefulIntent(intent);

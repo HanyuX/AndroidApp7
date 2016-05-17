@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by dnalwqer on 5/16/16.
+ * Delete one item from dataset
+ * Inform mobile to delete the same item
  */
 public class DeleteServlet extends HttpServlet {
 
@@ -21,7 +23,7 @@ public class DeleteServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        String id = req.getParameter("ID");
+        String id = req.getParameter("ID"); //ID of the item to delete
         EntryDataStore.delete(id);
         getServletContext().getRequestDispatcher("/send.do").forward(req, resp);
     }
