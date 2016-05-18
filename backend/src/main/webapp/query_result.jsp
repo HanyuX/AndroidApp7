@@ -24,7 +24,7 @@
 	<tr>
 	    <td><%=item.Id%></td><td><%=item.InputType%></td>
 		<td><%=item.ActivityType%></td><td><%=item.DateTime%></td>
-		<td><%=item.Duration%></td><td><%=item.Distance%></td>
+		<td><%=item.Duration%> mins</td><td><%=item.Distance%> Miles</td>
 		<td><%=item.AvgSpeed%></td><td><%=item.Calories%></td>
 		<td><%=item.Climb%></td><td><%=item.HeartRate%></td>
 		<td><%=item.Comment%></td>
