@@ -3,8 +3,10 @@ package edu.dartmouth.cs.actiontabs;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.AsyncTaskLoader;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.Loader;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.dartmouth.cs.actiontabs.gcm.GcmIntentService;
 
 /**
  * Created by xuehanyu on 4/5/16.
@@ -38,6 +42,8 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         super.onCreate(savedInstanceState);
         list = new ArrayList<>();
         getLoaderManager().initLoader(0, null, this);
+        IntentFilter filter = new IntentFilter(GcmIntentService.Update_History);
+        registerReceiver(onEvent, filter);
     }
 
 
@@ -242,4 +248,14 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             return (ArrayList<databaseItem>)helper.allItems();
         }
     }
+
+    /*
+ * Broadcast Receiver for sensor change
+ */
+    private BroadcastReceiver onEvent = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            reLoadData();
+        }
+    };
 }
