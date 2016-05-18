@@ -38,7 +38,7 @@ public class GcmIntentService extends IntentService {
                 Logger.getLogger("GCM_RECEIVED").log(Level.INFO, extras.toString());
 
                 //Get ID to delete in dataset
-                showToast(extras.getString("ID"));
+                showToast("Delete: "+extras.getString("ID"));
                 new DataBaseHelper(getApplicationContext()).deleteItem(extras.getString("ID"));
 
             }
